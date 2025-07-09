@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cjg8rjnsfeoyx" path="res://Day 1 - 10/Scripts/day_3.gd" id="1_glftf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glftf"]
-size = Vector2(128, 128)
+size = Vector2(16, 16)
 
 [node name="Day3" type="CharacterBody2D"]
 script = ExtResource("1_glftf")

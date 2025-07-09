@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://cjjv2fcoxix5h"]
+
+[ext_resource type="Script" uid="uid://bsetv8fetoeaf" path="res://Day 1 - 10/Scripts/day_4.gd" id="1_2j3q0"]
+[ext_resource type="Texture2D" uid="uid://cge4sqxqab1e0" path="res://Day 1 - 10/Assets/pixil-frame-0 (4).png" id="2_2j3q0"]
+[ext_resource type="Texture2D" uid="uid://iqvpvjrh3r4" path="res://Day 1 - 10/Assets/pixil-frame-0.png" id="3_2k34a"]
+[ext_resource type="Texture2D" uid="uid://3jbdc8sjmjq" path="res://Day 1 - 10/Assets/pixil-frame-0 (3).png" id="4_tx2ik"]
+[ext_resource type="Texture2D" uid="uid://ck0x8iqcs6sr1" path="res://Day 1 - 10/Assets/pixil-frame-0 (2).png" id="5_qhxtp"]
+[ext_resource type="Texture2D" uid="uid://cg55krkmd0au2" path="res://Day 1 - 10/Assets/pixil-frame-0 (1).png" id="6_gymxx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xjso"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2j3q0")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2k34a")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tx2ik")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qhxtp")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_gymxx")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glftf"]
+size = Vector2(16, 16)
+
+[node name="Day4" type="CharacterBody2D"]
+script = ExtResource("1_2j3q0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(643, 292)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_3xjso")
+animation = &"up"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(643, 292)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_glftf")
