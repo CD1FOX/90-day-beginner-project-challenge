@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://3jbdc8sjmjq" path="res://Day 1 - 10/Assets/pixil-frame-0 (3).png" id="4_h8v1u"]
 [ext_resource type="Texture2D" uid="uid://ck0x8iqcs6sr1" path="res://Day 1 - 10/Assets/pixil-frame-0 (2).png" id="5_0rncl"]
 [ext_resource type="Texture2D" uid="uid://cg55krkmd0au2" path="res://Day 1 - 10/Assets/pixil-frame-0 (1).png" id="6_vehbi"]
-[ext_resource type="Script" uid="uid://jf60ki67lsuf" path="res://Day 1 - 10/Scripts/coin.gd" id="7_rni60"]
+[ext_resource type="Script" uid="uid://jf60ki67lsuf" path="res://Day 1 - 10/Scripts/day_5.gd" id="7_rni60"]
 [ext_resource type="Texture2D" uid="uid://ctent6qt7g7rl" path="res://Assets/ball.png" id="8_h8v1u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3xjso"]

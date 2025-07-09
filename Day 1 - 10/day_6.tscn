@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dom7ui8dok4fy"]
+
+[ext_resource type="PackedScene" uid="uid://cjjv2fcoxix5h" path="res://Day 1 - 10/day_4.tscn" id="1_sq1aa"]
+[ext_resource type="Script" uid="uid://pxs33bq0jeby" path="res://Day 1 - 10/Scripts/day_6.gd" id="2_dgt8s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgt8s"]
+size = Vector2(82, 82)
+
+[node name="Day6" type="Node2D"]
+
+[node name="Day4" parent="." instance=ExtResource("1_sq1aa")]
+
+[node name="Enemys" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemys" instance=ExtResource("1_sq1aa")]
+position = Vector2(-140, 183)
+script = ExtResource("2_dgt8s")
+
+[node name="Area2D" type="Area2D" parent="Enemys/Enemy"]
+position = Vector2(140, -183)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemys/Enemy/Area2D"]
+position = Vector2(503, 475)
+shape = SubResource("RectangleShape2D_dgt8s")
+
+[connection signal="body_entered" from="Enemys/Enemy/Area2D" to="Enemys/Enemy" method="_on_area_2d_body_entered"]
