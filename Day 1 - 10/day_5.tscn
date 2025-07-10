@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://gm1bsnbt0j1a"]
 
-[ext_resource type="Script" uid="uid://bc5o6aen2owf6" path="res://Day 1 - 10/Assets/day_5.gd" id="1_rni60"]
+[ext_resource type="Script" uid="uid://bc5o6aen2owf6" path="res://Day 1 - 10/Scripts/CoinSpawner.gd" id="1_rni60"]
 [ext_resource type="Texture2D" uid="uid://cge4sqxqab1e0" path="res://Day 1 - 10/Assets/pixil-frame-0 (4).png" id="2_wpjk8"]
 [ext_resource type="Texture2D" uid="uid://iqvpvjrh3r4" path="res://Day 1 - 10/Assets/pixil-frame-0.png" id="3_rni60"]
 [ext_resource type="Texture2D" uid="uid://3jbdc8sjmjq" path="res://Day 1 - 10/Assets/pixil-frame-0 (3).png" id="4_h8v1u"]
