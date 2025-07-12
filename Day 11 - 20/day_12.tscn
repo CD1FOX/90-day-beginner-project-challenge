@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgyxjll0m1uyo"]
+
+[ext_resource type="Script" uid="uid://cebcm3ycsfdkh" path="res://Day 11 - 20/Script/day_12.gd" id="1_1ul27"]
+
+[node name="Day12" type="Node2D"]
+script = ExtResource("1_1ul27")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 279.0
+offset_top = 203.0
+offset_right = 547.0
+offset_bottom = 340.0
+theme_override_font_sizes/font_size = 100
+text = "00:00"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
