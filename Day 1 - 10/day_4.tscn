@@ -67,3 +67,7 @@ autoplay = "Idle"
 position = Vector2(643, 292)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_glftf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(645, 292)
+zoom = Vector2(1.5, 1.5)

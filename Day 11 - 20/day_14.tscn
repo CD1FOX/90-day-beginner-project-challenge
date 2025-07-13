@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfe0ow8ece57u"]
+
+[ext_resource type="Texture2D" uid="uid://ddi0d2kdbpd5h" path="res://Day 11 - 20/Assets/Layers/parallax-00.png" id="1_ixntd"]
+[ext_resource type="Texture2D" uid="uid://d2shjq4d2xhvw" path="res://Day 11 - 20/Assets/Layers/parallax-01.png" id="2_ymqk0"]
+[ext_resource type="PackedScene" uid="uid://cjjv2fcoxix5h" path="res://Day 1 - 10/day_4.tscn" id="3_01oxp"]
+[ext_resource type="Texture2D" uid="uid://7dyugvqnphw3" path="res://Day 11 - 20/Assets/Layers/parallax-02.png" id="3_86rbq"]
+[ext_resource type="Texture2D" uid="uid://c3rm2nvxa7l4r" path="res://Day 11 - 20/Assets/Layers/parallax-03.png" id="4_rr3jl"]
+[ext_resource type="Texture2D" uid="uid://dse3ya6qgehno" path="res://Day 11 - 20/Assets/Layers/parallax-04.png" id="5_kgnch"]
+
+[node name="Day14" type="Node2D"]
+
+[node name="Day4" parent="." instance=ExtResource("3_01oxp")]
+position = Vector2(-115, -35)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="FarMountains" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarMountains"]
+texture = ExtResource("1_ixntd")
+centered = false
+
+[node name="FarMountains2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarMountains2"]
+texture = ExtResource("2_ymqk0")
+centered = false
+
+[node name="FarMountains3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarMountains3"]
+texture = ExtResource("3_86rbq")
+centered = false
+
+[node name="FarMountains4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(1440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarMountains4"]
+texture = ExtResource("4_rr3jl")
+centered = false
+
+[node name="FarMountains5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarMountains5"]
+texture = ExtResource("5_kgnch")
+centered = false

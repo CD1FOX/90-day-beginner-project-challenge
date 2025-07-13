@@ -18,6 +18,10 @@ config/icon="res://Assets/icon.svg"
 
 Global1="*res://Day 1 - 10/Scripts/Global_day1_TO_day10.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 shoot={
