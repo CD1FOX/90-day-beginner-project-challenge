@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3r02avnl80va"]
+
+[ext_resource type="Script" uid="uid://yaptytqfx74n" path="res://Day 11 - 20/Script/day_17.gd" id="1_uywxr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62s61"]
+size = Vector2(40, 40)
+
+[node name="Day17" type="CharacterBody2D"]
+position = Vector2(420, 170)
+script = ExtResource("1_uywxr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_62s61")
+metadata/_edit_lock_ = true
