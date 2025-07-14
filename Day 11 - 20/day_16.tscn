@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgn63p7etl228"]
+
+[ext_resource type="Script" uid="uid://ce54wxj3wqnki" path="res://Day 11 - 20/Script/day_16.gd" id="1_8sr28"]
+[ext_resource type="Script" uid="uid://bp8jd8qnucyut" path="res://Day 11 - 20/Script/day_15.gd" id="1_uqa2s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sr28"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ppq0"]
+size = Vector2(40, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d01ex"]
+size = Vector2(160, 20)
+
+[node name="Day16" type="Node2D"]
+script = ExtResource("1_8sr28")
+metadata/_edit_lock_ = true
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(534, 204)
+scale = Vector2(2, 2)
+script = ExtResource("1_uqa2s")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_8sr28")
+metadata/_edit_lock_ = true
+
+[node name="Platform" type="Node2D" parent="."]
+
+[node name="Platform" type="Area2D" parent="Platform"]
+position = Vector2(537, 457)
+scale = Vector2(4, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="Platform/Platform"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform/Platform"]
+position = Vector2(0, -21)
+shape = SubResource("RectangleShape2D_0ppq0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platform"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform/StaticBody2D"]
+position = Vector2(537, 457)
+shape = SubResource("RectangleShape2D_d01ex")
+
+[connection signal="body_entered" from="Platform/Platform" to="." method="_on_platform_body_entered"]
