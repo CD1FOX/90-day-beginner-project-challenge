@@ -1,0 +1,154 @@
+[gd_scene load_steps=14 format=3 uid="uid://enoarxkcvy01"]
+
+[ext_resource type="Script" uid="uid://yrda2uwfr7pr" path="res://Day 11 - 20/Script/day_19.gd" id="1_2x460"]
+[ext_resource type="PackedScene" uid="uid://pmqhvm4n54l2" path="res://Day 1 - 10/day_10.1.tscn" id="2_hoi04"]
+[ext_resource type="Shader" uid="uid://bgf186yt2lh8s" path="res://Day 11 - 20/day_19.gdshader" id="3_dfrxr"]
+[ext_resource type="Texture2D" uid="uid://cge4sqxqab1e0" path="res://Day 1 - 10/Assets/pixil-frame-0 (4).png" id="4_n1o1n"]
+[ext_resource type="Texture2D" uid="uid://iqvpvjrh3r4" path="res://Day 1 - 10/Assets/pixil-frame-0.png" id="5_pcg6k"]
+[ext_resource type="Texture2D" uid="uid://3jbdc8sjmjq" path="res://Day 1 - 10/Assets/pixil-frame-0 (3).png" id="6_6wq6l"]
+[ext_resource type="Texture2D" uid="uid://ck0x8iqcs6sr1" path="res://Day 1 - 10/Assets/pixil-frame-0 (2).png" id="7_a1y20"]
+[ext_resource type="Texture2D" uid="uid://cg55krkmd0au2" path="res://Day 1 - 10/Assets/pixil-frame-0 (1).png" id="8_qv6o5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3pkaa"]
+shader = ExtResource("3_dfrxr")
+shader_parameter/flash = false
+shader_parameter/strength = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2mn8w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_n1o1n")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pcg6k")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6wq6l")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_a1y20")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_qv6o5")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7m4wk"]
+size = Vector2(16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wguqq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_n1o1n")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pcg6k")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6wq6l")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_a1y20")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_qv6o5")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua2qw"]
+size = Vector2(16, 16)
+
+[node name="Day19" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_2x460")
+bullet_scene = ExtResource("2_hoi04")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+material = SubResource("ShaderMaterial_3pkaa")
+position = Vector2(643, 292)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_2mn8w")
+animation = &"up"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(643, 292)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_7m4wk")
+
+[node name="RightBulletSpawnPoint" type="Marker2D" parent="Player"]
+position = Vector2(691, 292)
+
+[node name="UpBulletSpawnPoint" type="Marker2D" parent="Player"]
+position = Vector2(643, 244)
+
+[node name="DownBulletSpawnPoint" type="Marker2D" parent="Player"]
+position = Vector2(643, 340)
+
+[node name="LeftBulletSpawnPoint" type="Marker2D" parent="Player"]
+position = Vector2(596, 292)
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-456, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+position = Vector2(643, 292)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wguqq")
+animation = &"up"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(643, 292)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_ua2qw")

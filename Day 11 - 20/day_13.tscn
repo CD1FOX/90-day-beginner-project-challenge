@@ -13,6 +13,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Resume" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = 79.0
 offset_top = 235.0
 offset_right = 474.0
@@ -21,6 +22,7 @@ theme_override_font_sizes/font_size = 100
 text = "Resume"
 
 [node name="Quit" type="Button" parent="Menu"]
+layout_mode = 0
 offset_left = 655.0
 offset_top = 235.0
 offset_right = 1050.0
