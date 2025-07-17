@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg32dxdu026wo"]
+
+[ext_resource type="Script" uid="uid://b3awg2fb3qxs0" path="res://Day 21 - 30/Scipts/day_22.gd" id="1_6r0fp"]
+
+[node name="Day22" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6r0fp")
+
+[node name="DialogueText" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 397.0
+offset_top = 63.0
+offset_right = 710.0
+offset_bottom = 196.0
+bbcode_enabled = true
+text = "test"
+scroll_active = false
+
+[node name="NextButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 195.0
+offset_right = 218.0
+offset_bottom = 272.0
+theme_override_font_sizes/font_size = 50
+text = "Next"
+
+[node name="TypeTimer" type="Timer" parent="."]
+wait_time = 0.03
