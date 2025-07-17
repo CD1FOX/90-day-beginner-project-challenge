@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cfbs0yq3p53vd"
+path="res://.godot/imported/Mouse Click Sound Effect.mp3-7a44751ba7eba85ba49e2104197516b6.mp3str"
+
+[deps]
+
+source_file="res://Day 21 - 30/Assets/Mouse Click Sound Effect.mp3"
+dest_files=["res://.godot/imported/Mouse Click Sound Effect.mp3-7a44751ba7eba85ba49e2104197516b6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
