@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dulwdf4j8tekf"]
+
+[ext_resource type="Script" uid="uid://by1mjuy4ixs4n" path="res://Day 11 - 20/Script/day_20.gd" id="1_o307y"]
+[ext_resource type="AudioStream" uid="uid://cp611dldm13rf" path="res://Day 11 - 20/Assets/Mouse Click Sound Effect.mp3" id="2_po6a8"]
+
+[node name="Day20" type="Node2D"]
+script = ExtResource("1_o307y")
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_po6a8")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 341.0
+offset_top = 153.0
+offset_right = 860.0
+offset_bottom = 386.0
+text = "Click to produce sound"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
