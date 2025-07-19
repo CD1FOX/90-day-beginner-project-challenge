@@ -1,0 +1,105 @@
+[gd_scene load_steps=12 format=3 uid="uid://c8evwlbqg3whr"]
+
+[ext_resource type="Script" uid="uid://bk48uldoxiscy" path="res://Day 21 - 30/Scipts/day_26.gd" id="1_q5202"]
+[ext_resource type="Script" uid="uid://o5oc2julsc3d" path="res://Day 1 - 10/Scripts/day_10.gd" id="1_vr6n3"]
+[ext_resource type="PackedScene" uid="uid://pmqhvm4n54l2" path="res://Day 1 - 10/day_10.1.tscn" id="2_q5202"]
+[ext_resource type="Texture2D" uid="uid://cge4sqxqab1e0" path="res://Day 1 - 10/Assets/pixil-frame-0 (4).png" id="3_1lw12"]
+[ext_resource type="Texture2D" uid="uid://iqvpvjrh3r4" path="res://Day 1 - 10/Assets/pixil-frame-0.png" id="4_wxog4"]
+[ext_resource type="Texture2D" uid="uid://3jbdc8sjmjq" path="res://Day 1 - 10/Assets/pixil-frame-0 (3).png" id="5_4kecc"]
+[ext_resource type="Texture2D" uid="uid://ck0x8iqcs6sr1" path="res://Day 1 - 10/Assets/pixil-frame-0 (2).png" id="6_ugg8c"]
+[ext_resource type="Texture2D" uid="uid://cg55krkmd0au2" path="res://Day 1 - 10/Assets/pixil-frame-0 (1).png" id="7_7dm3c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5xebv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1lw12")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wxog4")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_4kecc")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ugg8c")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_7dm3c")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bcks"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lw12"]
+
+[node name="Day26" type="Node2D"]
+script = ExtResource("1_q5202")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_vr6n3")
+bullet_scene = ExtResource("2_q5202")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(643, 292)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_5xebv")
+animation = &"up"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(643, 292)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_6bcks")
+
+[node name="RightBulletSpawnPoint" type="Marker2D" parent="Player"]
+position = Vector2(691, 292)
+
+[node name="UpBulletSpawnPoint" type="Marker2D" parent="Player"]
+position = Vector2(643, 244)
+
+[node name="DownBulletSpawnPoint" type="Marker2D" parent="Player"]
+position = Vector2(643, 340)
+
+[node name="LeftBulletSpawnPoint" type="Marker2D" parent="Player"]
+position = Vector2(596, 292)
+
+[node name="SpeedBoost" type="Area2D" parent="."]
+position = Vector2(234, 284)
+
+[node name="ColorRect" type="ColorRect" parent="SpeedBoost"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeedBoost"]
+shape = SubResource("RectangleShape2D_1lw12")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="SpeedBoost" to="." method="_on_speed_boost_body_entered"]
