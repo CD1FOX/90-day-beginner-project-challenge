@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://iep7dyb6bwe2"]
+
+[ext_resource type="Script" uid="uid://dogwbeeiqpv07" path="res://Day 31 - 40/Scripts/day_31.gd" id="1_87mrl"]
+
+[node name="Day31" type="Node2D"]
+
+[node name="InventoryUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_87mrl")
+
+[node name="InventoryList" type="ItemList" parent="InventoryUI"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 21.0
+offset_right = 962.0
+offset_bottom = 217.0
+
+[node name="AddItemButton" type="Button" parent="InventoryUI"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 344.0
+offset_right = 724.0
+offset_bottom = 469.0
+text = "Add Item"
+
+[node name="TextEdit" type="TextEdit" parent="InventoryUI"]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 260.0
+offset_right = 674.0
+offset_bottom = 323.0
+placeholder_text = "Item Name"
+
+[connection signal="pressed" from="InventoryUI/AddItemButton" to="InventoryUI" method="_on_add_item_button_pressed"]
