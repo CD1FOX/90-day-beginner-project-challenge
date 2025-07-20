@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://dueta2tpu1vst"]
+
+[ext_resource type="Script" uid="uid://b58518oafep8j" path="res://Day 31 - 40/Scripts/day_33.gd" id="1_72wqp"]
+[ext_resource type="PackedScene" uid="uid://pmqhvm4n54l2" path="res://Day 1 - 10/day_10.1.tscn" id="2_a3h77"]
+[ext_resource type="Texture2D" uid="uid://cge4sqxqab1e0" path="res://Day 1 - 10/Assets/pixil-frame-0 (4).png" id="2_hirlh"]
+[ext_resource type="Texture2D" uid="uid://iqvpvjrh3r4" path="res://Day 1 - 10/Assets/pixil-frame-0.png" id="3_a3h77"]
+[ext_resource type="Texture2D" uid="uid://3jbdc8sjmjq" path="res://Day 1 - 10/Assets/pixil-frame-0 (3).png" id="4_thpps"]
+[ext_resource type="Texture2D" uid="uid://ck0x8iqcs6sr1" path="res://Day 1 - 10/Assets/pixil-frame-0 (2).png" id="5_et78u"]
+[ext_resource type="Texture2D" uid="uid://cg55krkmd0au2" path="res://Day 1 - 10/Assets/pixil-frame-0 (1).png" id="6_kidi6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sioas"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hirlh")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_a3h77")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_thpps")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_et78u")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kidi6")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktjhu"]
+size = Vector2(16, 16)
+
+[node name="Day33" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_72wqp")
+bullet_scene = ExtResource("2_a3h77")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(643, 292)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_sioas")
+animation = &"up"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(643, 292)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_ktjhu")
+
+[node name="RightBulletSpawnPoint" type="Marker2D" parent="Player"]
+position = Vector2(691, 292)
+
+[node name="UpBulletSpawnPoint" type="Marker2D" parent="Player"]
+position = Vector2(643, 244)
+
+[node name="DownBulletSpawnPoint" type="Marker2D" parent="Player"]
+position = Vector2(643, 340)
+
+[node name="LeftBulletSpawnPoint" type="Marker2D" parent="Player"]
+position = Vector2(596, 292)
