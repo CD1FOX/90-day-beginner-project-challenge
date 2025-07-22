@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx6p8xp52nofc"]
+
+[ext_resource type="Texture2D" uid="uid://cge4sqxqab1e0" path="res://Day 1 - 10/Assets/pixil-frame-0 (4).png" id="1_elkwx"]
+
+[node name="day_34_1" type="Node2D"]
+
+[node name="Idle" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_elkwx")

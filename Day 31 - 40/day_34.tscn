@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://dh3y07yvb2a4h"]
+
+[ext_resource type="Texture2D" uid="uid://cge4sqxqab1e0" path="res://Day 1 - 10/Assets/pixil-frame-0 (4).png" id="1_8mmtl"]
+[ext_resource type="Script" uid="uid://l68uyyjg5bn3" path="res://Day 31 - 40/Scripts/day_34.gd" id="1_sil0e"]
+[ext_resource type="PackedScene" uid="uid://cx6p8xp52nofc" path="res://Day 31 - 40/day_34_1.tscn" id="2_h6fm7"]
+[ext_resource type="Texture2D" uid="uid://iqvpvjrh3r4" path="res://Day 1 - 10/Assets/pixil-frame-0.png" id="2_sil0e"]
+[ext_resource type="Texture2D" uid="uid://3jbdc8sjmjq" path="res://Day 1 - 10/Assets/pixil-frame-0 (3).png" id="3_h6fm7"]
+[ext_resource type="Texture2D" uid="uid://ck0x8iqcs6sr1" path="res://Day 1 - 10/Assets/pixil-frame-0 (2).png" id="4_hu8i2"]
+[ext_resource type="Texture2D" uid="uid://cg55krkmd0au2" path="res://Day 1 - 10/Assets/pixil-frame-0 (1).png" id="5_5cqxo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ki253"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8mmtl")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sil0e")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_h6fm7")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hu8i2")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_5cqxo")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6rov"]
+size = Vector2(16, 16)
+
+[node name="Day34" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_sil0e")
+fading_images_scene = ExtResource("2_h6fm7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_ki253")
+animation = &"up"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_r6rov")
