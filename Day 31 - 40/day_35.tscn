@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://coyqd40lyyt0y"]
+
+[ext_resource type="Script" uid="uid://cxp61i78a1tln" path="res://Day 31 - 40/Scripts/day_35.gd" id="1_wo1hp"]
+
+[node name="Day35" type="Node2D"]
+script = ExtResource("1_wo1hp")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 275.0
+offset_top = 53.0
+offset_right = 712.0
+offset_bottom = 315.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 11.0
+offset_right = 418.0
+offset_bottom = 145.0
+autowrap_mode = 1
+
+[node name="Choice1" type="Button" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 81.0
+offset_top = 167.0
+offset_right = 121.0
+offset_bottom = 198.0
+text = "Yes"
+
+[node name="Choice2" type="Button" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 82.0
+offset_top = 210.0
+offset_right = 122.0
+offset_bottom = 241.0
+text = "No"
+
+[connection signal="pressed" from="Panel/Choice1" to="." method="_on_choice_1_pressed"]
+[connection signal="pressed" from="Panel/Choice2" to="." method="_on_choice_2_pressed"]
