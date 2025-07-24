@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cudso60g5g1jq"]
+
+[ext_resource type="Texture2D" uid="uid://bnb786weulgfi" path="res://Day 31 - 40/Assets/torch_light.png" id="1_cmhgk"]
+
+[node name="Day37" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_top = -3.0
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(545, 309)
+energy = 2.0
+shadow_enabled = true
+texture = ExtResource("1_cmhgk")
+texture_scale = 2.0
