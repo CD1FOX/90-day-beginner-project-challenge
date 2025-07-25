@@ -1,0 +1,164 @@
+[gd_scene load_steps=7 format=3 uid="uid://ufpankfvi8yw"]
+
+[ext_resource type="Script" uid="uid://bve43wlqpw4de" path="res://Day 31 - 40/Scripts/day_38.gd" id="1_h4kx3"]
+[ext_resource type="Texture2D" uid="uid://ch0ticpo1wyb5" path="res://Day 31 - 40/Assets/3. core rules.png" id="2_7ibxo"]
+[ext_resource type="Texture2D" uid="uid://d3opssxfvf55l" path="res://Day 31 - 40/Assets/5. module.png" id="3_8tivw"]
+[ext_resource type="Texture2D" uid="uid://oc3vnwk616xd" path="res://Day 31 - 40/Assets/6. storygame.png" id="4_xa1tb"]
+[ext_resource type="Texture2D" uid="uid://bgwpcf22s4cpu" path="res://Day 31 - 40/Assets/4. mosaic strict.png" id="5_2cbqb"]
+[ext_resource type="Texture2D" uid="uid://bds2vqi33goj7" path="res://Day 31 - 40/Assets/7. one shot.png" id="6_fubtf"]
+
+[node name="Day38" type="Node2D"]
+script = ExtResource("1_h4kx3")
+
+[node name="TimerLabel" type="Label" parent="."]
+visible = false
+offset_left = 417.0
+offset_top = 6.0
+offset_right = 717.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 60
+text = "60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DifficultyPicker" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="DifficultyPicker"]
+offset_right = 1153.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DifficultyPicker"]
+offset_left = 304.0
+offset_top = 120.0
+offset_right = 493.0
+offset_bottom = 233.0
+scale = Vector2(3, 3)
+theme_override_constants/separation = 10
+
+[node name="Easy" type="Button" parent="DifficultyPicker/VBoxContainer"]
+layout_mode = 2
+text = "Easy"
+
+[node name="Medium" type="Button" parent="DifficultyPicker/VBoxContainer"]
+layout_mode = 2
+text = "Medium"
+
+[node name="Hard" type="Button" parent="DifficultyPicker/VBoxContainer"]
+layout_mode = 2
+text = "Hard
+"
+
+[node name="Symbols" type="GridContainer" parent="."]
+offset_left = 56.0
+offset_top = 112.0
+offset_right = 5256.0
+offset_bottom = 2162.0
+scale = Vector2(0.2, 0.2)
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 5
+
+[node name="Symbol_a1" type="TextureRect" parent="Symbols"]
+layout_mode = 2
+texture = ExtResource("2_7ibxo")
+
+[node name="ColorRect" type="ColorRect" parent="Symbols/Symbol_a1" groups=["clickable_color_rects", "symbol_a"]]
+offset_right = 999.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 1)
+
+[node name="Symbol_c1" type="TextureRect" parent="Symbols"]
+layout_mode = 2
+texture = ExtResource("3_8tivw")
+
+[node name="ColorRect" type="ColorRect" parent="Symbols/Symbol_c1" groups=["clickable_color_rects", "symbol_c"]]
+layout_mode = 0
+offset_right = 999.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 1)
+
+[node name="Symbol_d1" type="TextureRect" parent="Symbols"]
+layout_mode = 2
+texture = ExtResource("4_xa1tb")
+
+[node name="ColorRect" type="ColorRect" parent="Symbols/Symbol_d1" groups=["clickable_color_rects", "symbol_d"]]
+layout_mode = 0
+offset_right = 999.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 1)
+
+[node name="Symbol_c2" type="TextureRect" parent="Symbols"]
+layout_mode = 2
+texture = ExtResource("3_8tivw")
+
+[node name="ColorRect" type="ColorRect" parent="Symbols/Symbol_c2" groups=["clickable_color_rects", "symbol_c"]]
+layout_mode = 0
+offset_right = 999.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 1)
+
+[node name="Symbol_b1" type="TextureRect" parent="Symbols"]
+layout_mode = 2
+texture = ExtResource("5_2cbqb")
+
+[node name="ColorRect" type="ColorRect" parent="Symbols/Symbol_b1" groups=["clickable_color_rects", "symbol_b"]]
+layout_mode = 0
+offset_right = 999.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 1)
+
+[node name="Symbol_e1" type="TextureRect" parent="Symbols"]
+layout_mode = 2
+texture = ExtResource("6_fubtf")
+
+[node name="ColorRect" type="ColorRect" parent="Symbols/Symbol_e1" groups=["clickable_color_rects", "symbol_e"]]
+layout_mode = 0
+offset_right = 999.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 1)
+
+[node name="Symbol_a2" type="TextureRect" parent="Symbols"]
+layout_mode = 2
+texture = ExtResource("2_7ibxo")
+
+[node name="ColorRect" type="ColorRect" parent="Symbols/Symbol_a2" groups=["clickable_color_rects", "symbol_a"]]
+layout_mode = 0
+offset_right = 999.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 1)
+
+[node name="Symbol_e2" type="TextureRect" parent="Symbols"]
+layout_mode = 2
+texture = ExtResource("6_fubtf")
+
+[node name="ColorRect" type="ColorRect" parent="Symbols/Symbol_e2" groups=["clickable_color_rects", "symbol_e"]]
+layout_mode = 0
+offset_right = 999.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 1)
+
+[node name="Symbol_b2" type="TextureRect" parent="Symbols"]
+layout_mode = 2
+texture = ExtResource("5_2cbqb")
+
+[node name="ColorRect" type="ColorRect" parent="Symbols/Symbol_b2" groups=["clickable_color_rects", "symbol_b"]]
+layout_mode = 0
+offset_right = 999.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 1)
+
+[node name="Symbol_d2" type="TextureRect" parent="Symbols"]
+layout_mode = 2
+texture = ExtResource("4_xa1tb")
+
+[node name="ColorRect" type="ColorRect" parent="Symbols/Symbol_d2" groups=["clickable_color_rects", "symbol_d"]]
+layout_mode = 0
+offset_right = 999.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="DifficultyPicker/VBoxContainer/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="DifficultyPicker/VBoxContainer/Medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="DifficultyPicker/VBoxContainer/Hard" to="." method="_on_hard_pressed"]
