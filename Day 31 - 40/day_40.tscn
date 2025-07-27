@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbyykq82pxwc3"]
+
+[ext_resource type="Script" uid="uid://cmpa3a03147g3" path="res://Day 31 - 40/Scripts/day_40.gd" id="1_lh20a"]
+
+[node name="Day40" type="Node2D"]
+script = ExtResource("1_lh20a")
+
+[node name="ComboLabel" type="Label" parent="."]
+offset_left = 148.0
+offset_top = 140.0
+offset_right = 963.0
+offset_bottom = 277.0
+theme_override_font_sizes/font_size = 100
+text = "WOMBO COMBO"
+
+[node name="ComboTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="ComboButton" type="Button" parent="."]
+offset_left = 450.0
+offset_top = 341.0
+offset_right = 668.0
+offset_bottom = 463.0
+text = "Get Combo!"
+
+[connection signal="timeout" from="ComboTimer" to="." method="_on_combo_timer_timeout"]
+[connection signal="pressed" from="ComboButton" to="." method="_on_combo_button_pressed"]
