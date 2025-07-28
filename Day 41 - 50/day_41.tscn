@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://deexfpman1paq"]
+
+[ext_resource type="Script" uid="uid://bskcf3g52mdxu" path="res://Day 41 - 50/Scripts/day_41(player).gd" id="1_v5oy5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a850g"]
+size = Vector2(100, 10)
+
+[sub_resource type="Animation" id="Animation_v5oy5"]
+resource_name = "move"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6.03333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(148, 549), Vector2(748, 549), Vector2(148, 549)]
+}
+
+[sub_resource type="Animation" id="Animation_yac64"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(148, 549)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7i8hy"]
+_data = {
+&"RESET": SubResource("Animation_yac64"),
+&"move": SubResource("Animation_v5oy5")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yac64"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5oy5"]
+size = Vector2(40, 40)
+
+[node name="Day41" type="Node2D"]
+
+[node name="Platform" type="AnimatableBody2D" parent="."]
+position = Vector2(148, 549)
+scale = Vector2(2, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Platform"]
+offset_left = -50.0
+offset_top = -5.0
+offset_right = 50.0
+offset_bottom = 5.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+shape = SubResource("RectangleShape2D_a850g")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
+libraries = {
+&"": SubResource("AnimationLibrary_7i8hy")
+}
+autoplay = "move"
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(995, 564)
+scale = Vector2(2, 2)
+script = ExtResource("1_v5oy5")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_yac64")
+metadata/_edit_lock_ = true
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(567, 632)
+scale = Vector2(30.6978, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_v5oy5")
