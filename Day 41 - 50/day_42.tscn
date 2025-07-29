@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://dem62mx4nq0w"]
+
+[ext_resource type="Script" uid="uid://bfpqqkv6fq4ca" path="res://Day 41 - 50/Scripts/day_42(player).gd" id="1_h3qon"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6iug"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sdtq"]
+size = Vector2(40, 40)
+
+[node name="Day42" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(394, 320)
+script = ExtResource("1_h3qon")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_u6iug")
+metadata/_edit_lock_ = true
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(412, 635)
+scale = Vector2(20.4873, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_7sdtq")
+metadata/_edit_lock_ = true
+
+[node name="Walls2" type="StaticBody2D" parent="."]
+position = Vector2(22, 205)
+rotation = -1.5708
+scale = Vector2(20.4873, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Walls2"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 1, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls2"]
+shape = SubResource("RectangleShape2D_7sdtq")
+metadata/_edit_lock_ = true
