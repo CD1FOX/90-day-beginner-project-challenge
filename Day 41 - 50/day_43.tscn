@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8fo0kbh7wav6"]
+
+[ext_resource type="Script" uid="uid://ch8m6epchcrtn" path="res://Day 41 - 50/Scripts/day_43.gd" id="1_ht3pq"]
+
+[node name="Day43" type="Node2D"]
+script = ExtResource("1_ht3pq")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 170.0
+offset_top = 232.0
+offset_right = 449.0
+offset_bottom = 353.0
+text = "Add points"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 585.0
+offset_top = 240.0
+offset_right = 888.0
+offset_bottom = 353.0
+text = "Kill"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
