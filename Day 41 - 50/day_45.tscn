@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dctg6mbj4fp3m"]
+
+[ext_resource type="Script" uid="uid://dnhrp4w5h2k62" path="res://Day 41 - 50/Scripts/day_45(player).gd" id="1_kpl7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpl7h"]
+size = Vector2(40, 40)
+
+[node name="Day45" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+scale = Vector2(2, 2)
+script = ExtResource("1_kpl7h")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_kpl7h")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
