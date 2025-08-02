@@ -1,0 +1,206 @@
+[gd_scene load_steps=5 format=3 uid="uid://8uqy6uc5b72"]
+
+[ext_resource type="Script" uid="uid://c61nb3amlm8j5" path="res://Day 41 - 50/Scripts/day_46(player).gd" id="1_g1j0a"]
+[ext_resource type="Script" uid="uid://c3bc780hedcui" path="res://Day 41 - 50/Scripts/day_46.gd" id="1_oos8b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pofao"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1j0a"]
+size = Vector2(40, 40)
+
+[node name="Day46" type="Node2D"]
+script = ExtResource("1_oos8b")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+scale = Vector2(2, 2)
+script = ExtResource("1_g1j0a")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_pofao")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Box1" type="StaticBody2D" parent="World"]
+position = Vector2(408, 32)
+
+[node name="ColorRect" type="ColorRect" parent="World/Box1"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.114897, 0.114897, 0.114897, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Box1"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_g1j0a")
+metadata/_edit_lock_ = true
+
+[node name="Box2" type="StaticBody2D" parent="World"]
+position = Vector2(248, 240)
+
+[node name="ColorRect" type="ColorRect" parent="World/Box2"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.114897, 0.114897, 0.114897, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Box2"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_g1j0a")
+metadata/_edit_lock_ = true
+
+[node name="Box3" type="StaticBody2D" parent="World"]
+position = Vector2(0, 232)
+
+[node name="ColorRect" type="ColorRect" parent="World/Box3"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.114897, 0.114897, 0.114897, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Box3"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_g1j0a")
+metadata/_edit_lock_ = true
+
+[node name="Box4" type="StaticBody2D" parent="World"]
+position = Vector2(-288, 64)
+
+[node name="ColorRect" type="ColorRect" parent="World/Box4"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.114897, 0.114897, 0.114897, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Box4"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_g1j0a")
+metadata/_edit_lock_ = true
+
+[node name="Box5" type="StaticBody2D" parent="World"]
+position = Vector2(-192, -240)
+
+[node name="ColorRect" type="ColorRect" parent="World/Box5"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.114897, 0.114897, 0.114897, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Box5"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_g1j0a")
+metadata/_edit_lock_ = true
+
+[node name="MiniViewport" type="SubViewport" parent="."]
+render_target_update_mode = 4
+
+[node name="MinimapContainer" type="Node2D" parent="MiniViewport"]
+
+[node name="WorldMini" type="Node2D" parent="MiniViewport/MinimapContainer"]
+
+[node name="Box1" type="StaticBody2D" parent="MiniViewport/MinimapContainer/WorldMini"]
+position = Vector2(408, 32)
+
+[node name="ColorRect" type="ColorRect" parent="MiniViewport/MinimapContainer/WorldMini/Box1"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.114897, 0.114897, 0.114897, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiniViewport/MinimapContainer/WorldMini/Box1"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_g1j0a")
+metadata/_edit_lock_ = true
+
+[node name="Box2" type="StaticBody2D" parent="MiniViewport/MinimapContainer/WorldMini"]
+position = Vector2(248, 240)
+
+[node name="ColorRect" type="ColorRect" parent="MiniViewport/MinimapContainer/WorldMini/Box2"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.114897, 0.114897, 0.114897, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiniViewport/MinimapContainer/WorldMini/Box2"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_g1j0a")
+metadata/_edit_lock_ = true
+
+[node name="Box3" type="StaticBody2D" parent="MiniViewport/MinimapContainer/WorldMini"]
+position = Vector2(0, 232)
+
+[node name="ColorRect" type="ColorRect" parent="MiniViewport/MinimapContainer/WorldMini/Box3"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.114897, 0.114897, 0.114897, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiniViewport/MinimapContainer/WorldMini/Box3"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_g1j0a")
+metadata/_edit_lock_ = true
+
+[node name="Box4" type="StaticBody2D" parent="MiniViewport/MinimapContainer/WorldMini"]
+position = Vector2(-288, 64)
+
+[node name="ColorRect" type="ColorRect" parent="MiniViewport/MinimapContainer/WorldMini/Box4"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.114897, 0.114897, 0.114897, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiniViewport/MinimapContainer/WorldMini/Box4"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_g1j0a")
+metadata/_edit_lock_ = true
+
+[node name="Box5" type="StaticBody2D" parent="MiniViewport/MinimapContainer/WorldMini"]
+position = Vector2(-192, -240)
+
+[node name="ColorRect" type="ColorRect" parent="MiniViewport/MinimapContainer/WorldMini/Box5"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.114897, 0.114897, 0.114897, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiniViewport/MinimapContainer/WorldMini/Box5"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_g1j0a")
+metadata/_edit_lock_ = true
+
+[node name="PlayerMini" type="ColorRect" parent="MiniViewport/MinimapContainer"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="MiniCamera" type="Camera2D" parent="MiniViewport/MinimapContainer/PlayerMini"]
+position = Vector2(20, 20)
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MinimapDisplay" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
