@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg3shw1aer0xo"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://dd3qjq26nier1" path="res://Day 41 - 50/day_49.tres" id="1_iqw15"]
+[ext_resource type="Script" uid="uid://u44iiocfnpwe" path="res://Day 41 - 50/Scripts/day_49(player).gd" id="2_fhqb1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhqb1"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pem0s"]
+size = Vector2(40, 40)
+
+[node name="Day49" type="Node2D"]
+
+[node name="Ice" type="StaticBody2D" parent="."]
+position = Vector2(394, 342)
+scale = Vector2(50, 1)
+physics_material_override = ExtResource("1_iqw15")
+
+[node name="ColorRect" type="ColorRect" parent="Ice"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 1, 1, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ice"]
+shape = SubResource("RectangleShape2D_fhqb1")
+metadata/_edit_lock_ = true
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("2_fhqb1")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_pem0s")
