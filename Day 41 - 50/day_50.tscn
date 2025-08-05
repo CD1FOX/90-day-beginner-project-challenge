@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://uonmarns6b0e"]
+
+[ext_resource type="Script" uid="uid://dkhr0demqjb2" path="res://Day 41 - 50/Scripts/day_50(player).gd" id="1_brbb7"]
+[ext_resource type="Script" uid="uid://bbw0s77p1efet" path="res://Day 41 - 50/Scripts/day_50(box).gd" id="2_0xvxq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brbb7"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xvxq"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wuer0"]
+size = Vector2(41, 41)
+
+[node name="Day50" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(504, 200)
+scale = Vector2(2, 2)
+script = ExtResource("1_brbb7")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_brbb7")
+metadata/_edit_lock_ = true
+
+[node name="Box" type="CharacterBody2D" parent="."]
+position = Vector2(144, 200)
+scale = Vector2(2, 2)
+script = ExtResource("2_0xvxq")
+
+[node name="ColorRect" type="ColorRect" parent="Box"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
+shape = SubResource("RectangleShape2D_0xvxq")
+metadata/_edit_lock_ = true
+
+[node name="Box" type="Area2D" parent="Box"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/Box"]
+shape = SubResource("RectangleShape2D_wuer0")
+
+[connection signal="body_entered" from="Box/Box" to="Box" method="_on_box_body_entered"]
+[connection signal="body_exited" from="Box/Box" to="Box" method="_on_box_body_exited"]
