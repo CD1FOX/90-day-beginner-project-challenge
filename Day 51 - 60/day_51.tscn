@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt10w2mmkk7t2"]
+
+[ext_resource type="Script" uid="uid://djc04m4cx32px" path="res://Day 51 - 60/Scripts/day_51(NPC).gd" id="1_6gi5o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo2mv"]
+size = Vector2(40, 40)
+
+[node name="Day51" type="Node2D"]
+
+[node name="NPC" type="CharacterBody2D" parent="."]
+position = Vector2(563, 223)
+scale = Vector2(2, 2)
+script = ExtResource("1_6gi5o")
+
+[node name="ColorRect" type="ColorRect" parent="NPC"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+shape = SubResource("RectangleShape2D_wo2mv")
+metadata/_edit_lock_ = true
