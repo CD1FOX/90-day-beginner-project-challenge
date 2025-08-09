@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=3 uid="uid://b65xlk8obuwxa"]
+
+[ext_resource type="Script" uid="uid://binwe6dfefgne" path="res://Day 51 - 60/Scripts/day_53.gd" id="1_4pi1c"]
+
+[node name="Day53" type="Node2D"]
+script = ExtResource("1_4pi1c")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 344.0
+offset_top = 256.0
+offset_right = 795.0
+offset_bottom = 296.0
+columns = 5
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "$1"
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "$2"
+
+[node name="Label3" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "$3"
+
+[node name="Label4" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "$4"
+
+[node name="Label5" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "$5"
+
+[node name="Item1" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Buy Item1"
+
+[node name="Item2" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Buy Item2"
+
+[node name="Item3" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Buy Item3"
+
+[node name="Item4" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Buy Item4"
+
+[node name="Item5" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Buy Item5"
+
+[node name="CoinsLabel" type="Label" parent="."]
+offset_left = 104.0
+offset_top = 46.0
+offset_right = 250.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 50
+text = "Coins:"
+
+[connection signal="pressed" from="GridContainer/Item1" to="." method="_on_item_1_pressed"]
+[connection signal="pressed" from="GridContainer/Item2" to="." method="_on_item_2_pressed"]
+[connection signal="pressed" from="GridContainer/Item3" to="." method="_on_item_3_pressed"]
+[connection signal="pressed" from="GridContainer/Item4" to="." method="_on_item_4_pressed"]
+[connection signal="pressed" from="GridContainer/Item5" to="." method="_on_item_5_pressed"]
