@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf1wltyfotqyd"]
+
+[ext_resource type="Script" uid="uid://xaukndredts2" path="res://Day 51 - 60/Scripts/day_54.gd" id="1_8j4kg"]
+
+[node name="Day54" type="Node2D"]
+script = ExtResource("1_8j4kg")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 283.0
+offset_top = 62.0
+offset_right = 803.0
+offset_bottom = 89.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 509.0
+offset_top = 33.0
+offset_right = 573.0
+offset_bottom = 56.0
+text = "Stamina"
