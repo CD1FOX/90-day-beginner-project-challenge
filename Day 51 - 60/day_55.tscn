@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://nqgdsvc6aqex"]
+
+[ext_resource type="Script" uid="uid://d3u6a1xnu6wuf" path="res://Day 51 - 60/Scripts/day_55(player).gd" id="1_64s21"]
+[ext_resource type="Script" uid="uid://clw0xmxb3fh6" path="res://Day 51 - 60/Scripts/day_55(rock).gd" id="2_3sujb"]
+[ext_resource type="Texture2D" uid="uid://ctent6qt7g7rl" path="res://Assets/ball.png" id="3_b7b3r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7hel"]
+size = Vector2(40, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b6i7y"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5mb5"]
+radius = 6.0
+
+[node name="Day55" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+scale = Vector2(2, 2)
+script = ExtResource("1_64s21")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_k7hel")
+metadata/_edit_lock_ = true
+
+[node name="Rock" type="CharacterBody2D" parent="."]
+position = Vector2(312, 80)
+scale = Vector2(2, 2)
+script = ExtResource("2_3sujb")
+
+[node name="Ball" type="Sprite2D" parent="Rock"]
+texture = ExtResource("3_b7b3r")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rock"]
+shape = SubResource("CircleShape2D_b6i7y")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="Rock"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rock/Area2D"]
+shape = SubResource("CircleShape2D_p5mb5")
+
+[connection signal="body_entered" from="Rock/Area2D" to="Rock" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Rock/Area2D" to="Rock" method="_on_area_2d_body_exited"]
