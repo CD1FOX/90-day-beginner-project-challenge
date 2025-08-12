@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://5nyco8ytuf77"]
+
+[ext_resource type="Script" uid="uid://b81bog8gj8jok" path="res://Day 51 - 60/Scripts/day_56(player).gd" id="1_mqn8i"]
+[ext_resource type="Script" uid="uid://dj1k1w8s2xrcf" path="res://Day 51 - 60/Scripts/day_56(Enemy).gd" id="2_a0tpq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0tpq"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_je64p"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qknxg"]
+size = Vector2(429.875, 211.875)
+
+[node name="Day56" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(518, 34)
+scale = Vector2(2, 2)
+script = ExtResource("1_mqn8i")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_a0tpq")
+metadata/_edit_lock_ = true
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(811, 376)
+scale = Vector2(2, 2)
+script = ExtResource("2_a0tpq")
+
+[node name="ColorRect" type="ColorRect" parent="Enemy"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("RectangleShape2D_je64p")
+metadata/_edit_lock_ = true
+
+[node name="DetectionRadius" type="Area2D" parent="."]
+position = Vector2(811, 376)
+scale = Vector2(2, 2)
+
+[node name="ColorRect" type="ColorRect" parent="DetectionRadius"]
+offset_left = -325.0
+offset_top = -98.0
+offset_right = 105.0
+offset_bottom = 114.0
+color = Color(0.203922, 0.301961, 0.960784, 0.109804)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius"]
+position = Vector2(-109.938, 7.5625)
+shape = SubResource("RectangleShape2D_qknxg")
+
+[connection signal="body_entered" from="DetectionRadius" to="Enemy" method="_on_detection_radius_body_entered"]
+[connection signal="body_exited" from="DetectionRadius" to="Enemy" method="_on_detection_radius_body_exited"]
