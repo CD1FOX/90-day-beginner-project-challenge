@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://dliq508fsawbe"]
+
+[ext_resource type="Script" uid="uid://5m58gxlxsw8a" path="res://Day 51 - 60/Scripts/day_58(player).gd" id="1_jy0nj"]
+[ext_resource type="Script" uid="uid://np7ph1ajnj0a" path="res://Day 51 - 60/Scripts/day_58(enemy).gd" id="2_dl7si"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dl7si"]
+vertices = PackedVector2Array(611.063, 412, 997.039, 544.961, 215.039, 542.031, 548.938, 412, 216.953, 113.883, 550.063, 214, 998.953, 105.109, 609.938, 214)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(6, 1, 0, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(207, 104, 205, 552, 1007, 555, 1009, 95), PackedVector2Array(560, 224, 600, 224, 601, 402, 559, 402)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dl7si"]
+size = Vector2(40, 177)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sv5u"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1abcu"]
+size = Vector2(40, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i232g"]
+radius = 223.002
+
+[node name="Day58" type="Node2D"]
+
+[node name="NavREgion" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_dl7si")
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(560, 224)
+
+[node name="ColorRect" type="ColorRect" parent="Wall"]
+offset_right = 40.0
+offset_bottom = 177.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(20, 88.5)
+shape = SubResource("RectangleShape2D_dl7si")
+metadata/_edit_lock_ = true
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(296, 320)
+script = ExtResource("1_jy0nj")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_1sv5u")
+metadata/_edit_lock_ = true
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(656, 312)
+script = ExtResource("2_dl7si")
+
+[node name="ColorRect" type="ColorRect" parent="Enemy"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("RectangleShape2D_1abcu")
+metadata/_edit_lock_ = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Enemy"]
+
+[node name="DetectionArea" type="Area2D" parent="Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/DetectionArea"]
+shape = SubResource("CircleShape2D_i232g")
+
+[connection signal="body_entered" from="Enemy/DetectionArea" to="Enemy" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="Enemy/DetectionArea" to="Enemy" method="_on_detection_area_body_exited"]
