@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhnvuot0s6kyp"]
+
+[ext_resource type="Script" uid="uid://bjahf5alphq4x" path="res://Day 61 - 70/Scripts/day_61(player).gd" id="1_7hb0b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qp3i"]
+size = Vector2(40, 40)
+
+[node name="Day61" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(577, 304)
+scale = Vector2(2, 2)
+script = ExtResource("1_7hb0b")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_6qp3i")
+metadata/_edit_lock_ = true
+
+[node name="power_label" type="Label" parent="Player"]
+offset_left = -18.5
+offset_top = -43.0
+offset_right = 21.5
+offset_bottom = -15.0
+theme_override_font_sizes/font_size = 15
+text = "0%"
