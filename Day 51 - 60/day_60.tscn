@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyvn0fi7rgfdm"]
+
+[ext_resource type="Script" uid="uid://ioecj5jgwqs5" path="res://Day 51 - 60/Scripts/day_60(player).gd" id="1_cgimq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m34ne"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgimq"]
+size = Vector2(22, 20)
+
+[node name="Day60" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+z_index = 1
+position = Vector2(597, 284)
+scale = Vector2(2, 2)
+script = ExtResource("1_cgimq")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_m34ne")
+metadata/_edit_lock_ = true
+
+[node name="TelePad1" type="Area2D" parent="."]
+position = Vector2(115, 278)
+scale = Vector2(2, 2)
+
+[node name="ColorRect" type="ColorRect" parent="TelePad1"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(1, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TelePad1"]
+shape = SubResource("RectangleShape2D_cgimq")
+metadata/_edit_lock_ = true
+
+[node name="TelePad2" type="Area2D" parent="."]
+position = Vector2(1043, 278)
+scale = Vector2(2, 2)
+
+[node name="ColorRect" type="ColorRect" parent="TelePad2"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 1, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TelePad2"]
+shape = SubResource("RectangleShape2D_cgimq")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="TelePad1" to="Player" method="_on_tele_pad_1_body_entered"]
+[connection signal="body_exited" from="TelePad1" to="Player" method="_on_tele_pad_1_body_exited"]
+[connection signal="body_entered" from="TelePad2" to="Player" method="_on_tele_pad_2_body_entered"]
+[connection signal="body_exited" from="TelePad2" to="Player" method="_on_tele_pad_2_body_exited"]
