@@ -10,6 +10,7 @@ func _physics_process(delta: float) -> void:
 
 	# Holding Dash (charging)
 	if Input.is_action_pressed("Dash") and charge_power <= 100:
+		direction = Vector2.ZERO
 		charge_power += 50 * delta
 		power_label.text = str(int(charge_power)) + "%"
 	
