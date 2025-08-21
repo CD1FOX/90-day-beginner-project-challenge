@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://ybvyg7owpxm3"]
+
+[ext_resource type="Texture2D" uid="uid://dm3edbyppixkg" path="res://Day 61 - 70/Assets/snowflake_dot_4x4.png" id="1_468uk"]
+[ext_resource type="Script" uid="uid://ci2uyhfueul3t" path="res://Day 61 - 70/Scripts/day_66.gd" id="1_tu4du"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tu4du"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 100.0
+initial_velocity_min = 600.0
+initial_velocity_max = 800.0
+gravity = Vector3(0, 1000, 0)
+damping_max = 0.05
+scale_min = 0.5
+scale_max = 0.6
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2740q"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 100.0
+initial_velocity_min = 60.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 100, 0)
+damping_max = 0.2
+turbulence_enabled = true
+turbulence_noise_strength = 1.5
+
+[node name="Day66" type="Node2D"]
+script = ExtResource("1_tu4du")
+
+[node name="Clear" type="Node2D" parent="."]
+position = Vector2(520, 0)
+
+[node name="Rain" type="GPUParticles2D" parent="."]
+position = Vector2(520, 0)
+amount = 800
+lifetime = 1.5
+preprocess = 0.5
+randomness = 0.2
+process_material = SubResource("ParticleProcessMaterial_tu4du")
+
+[node name="Snow" type="GPUParticles2D" parent="."]
+position = Vector2(520, 0)
+amount = 600
+texture = ExtResource("1_468uk")
+lifetime = 6.0
+preprocess = 1.0
+randomness = 0.4
+process_material = SubResource("ParticleProcessMaterial_2740q")
+
+[node name="WeatherTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="WeatherTimer" to="." method="_on_weather_timer_timeout"]
